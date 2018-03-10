@@ -1,0 +1,64 @@
+https://ru.hexlet.io/courses/js-setup-environment/lessons/source-map/theory_unit
+
+
+
+В самых простых случаях транслированный код выглядит почти так же, как и исходный, но стоит начать использовать чуть более продвинутые возможности JS, как код изменяется до неузнаваемости:
+
+Было:
+
+const defaultState = { channels: {}, messages: {} };
+let state = { ...defaultState };
+
+export default router => router.put('refresh', '/refresh', async (ctx) => {
+  state = { ...defaultState };
+});
+
+Стало:
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var defaultState = { channels: {}, messages: {} };
+var state = _extends({}, defaultState);
+
+exports.default = function (router) {
+  return router.put('refresh', '/refresh', function (ctx) {
+    state = _extends({}, defaultState);
+    ctx.status(200);
+  });
+};
+
+Трансляция не дается бесплатно. И дело даже не в том, что получившийся код нечитаем, а в том, что теряется возможность нормальной отладки. Ведь запускается теперь не наш первоначальный код, а код полученный трансляцией, а значит любая логическая ошибка нашего кода, будет указывать на транслированный код, который в свою очередь очень сильно отличается от исходного, поскольку:
+
+    Babel может заменять имена переменных.
+    Строчки, на которые указывает stacktrace(отчет о вызванных функциях после возникновения ошибки в программе), в исходном и транслированном файле не совпадают. Более того, stacktrace указывает только на транслированный код, а исходный никак не участвует в процессе.
+    В одних и тех же ситуациях возникают разные ошибки. Например если вы забыли экспортировать функцию по умолчанию, то после трансляции вы увидите такое сообщение: TypeError: (0 , _path2.default) is not a function вместо Module 'path' has no default export.
+
+Для решения этой проблемы используется специальный механизм под названием "source map". Его принцип действия следующий. При транспайлинге кода создается структура определенного формата, в которой описана связь сгенерированного кода с исходным кодом, затем эта структура записывается либо в отдельный файл, либо прямо в сгенерированный в виде комментария (inline mode). Затем, во время выполнения она используется интерпретатором для того чтобы строить правильные стектрейсы и ссылки.
+
+Пример содержимого файла index.js.map с маппингом:
+
+{"version":3,"sources":["../src/index.js"],"names":["co","generator","args","iterator","enerator","next","result","value","Promise","resolve","done","then","res","throw","err","reject"],"mappings":";;;;;;AAEA;;;;AAEA;;;;;;;;;;;;;AAaA,IAAMA,KAAK,SAALA,EAAK,CAACC,SAAD,EAAyC;AAAA,oCAAdC,IAAc;AAAdA,QAAc;AAAA;;AAClD,MAAMC,WAAWC,6CAAYF,IAAZ,EAAjB;;AAEA,MAAMG,OAAO,SAAPA,IAAO,CAACC,MAAD,EAAY;AACvB,QAAMC,QAAQC,QAAQC,OAAR,CAAgBH,OAAOC,KAAvB,CAAd;AACA,QAAID,OAAOI,IAAX,EAAiB;AACf,aAAOH,KAAP;AACD;;AAED,WAAOA,MAAMI,IAAN,CACL;AAAA,aAAON,KAAKF,SAASE,IAAT,CAAcO,GAAd,CAAL,CAAP;AAAA,KADK,EAEL;AAAA,aAAOP,KAAKF,SAASU,KAAT,CAAeC,GAAf,CAAL,CAAP;AAAA,KAFK,CAAP;AAID,GAVD;;AAYA,MAAI;AACF,WAAOT,KAAKF,SAASE,IAAT,EAAL,CAAP;AACD,GAFD,CAEE,OAAOS,GAAP,EAAY;AACZ,WAAON,QAAQO,MAAR,CAAeD,GAAf,CAAP;AACD;AACF,CApBD;;kBAsBed,E","file":"index.js","sourcesContent":["// @flow\n\nimport 'source-map-support/register';\n\n/**\n * Generator based control flow\n * @name co\n * @example\n * co(function* () {\n *   const result = yield Promise.resolve(true);\n *   return result;\n * }).then(value => {\n *   console.log(value);\n * }, err => {\n *   console.error(err.stack);\n * });\n */\nconst co = (generator: () => void, ...args: any) => {\n  const iterator = enerator(...args);\n\n  const next = (result) => {\n    const value = Promise.resolve(result.value);\n    if (result.done) {\n      return value;\n    }\n\n    return value.then(\n      res => next(iterator.next(res)),\n      err => next(iterator.throw(err)),\n    );\n  };\n\n  try {\n    return next(iterator.next());\n  } catch (err) {\n    return Promise.reject(err);\n  }\n};\n\nexport default co;\n"]}
+
+А в сгенерированном файле index.js, в самом низу, будет такая строчка:
+
+//# sourceMappingURL=index.js.map
+
+Эта техника не является специфичной для JS, она используется повсеместно там, где применяется транспайлинг.
+Babel
+
+Babel поддерживает source map из коробки. Для его генерации достаточно добавить флаг --source-maps в процесс компиляции:
+
+$ npx babel script.js --out-file script-compiled.js --source-maps --inline
+
+После выполнения этой команды, в транслированных файлах, в самом низу, появится source map в виде комментария. Теперь, если запустить транслированный код, то вывод ошибки укажет на исходные файлы.
+Самостоятельная работа
+
+    Пропустите код nodejs-package через Babel, включив генерацию Source Map в отдельных файлах.
+
+
