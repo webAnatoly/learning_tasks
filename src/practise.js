@@ -153,6 +153,34 @@ assert.equal(isHappyNumber(7), true); // должно вернуть true
 assert.equal(isHappyNumber(798765432), 'A lot of iteration'); // должно вернуть 'A lot of iteration'
 
 // Задача 7 Переворот числа
+// Реализуйте функцию, которая переворачивает цифры в переданном числе и возвращает новое число.
+const reverseInt = (number) => {
+  if (number > -10 && number < 10) return number;
+
+  let str = String(number);
+
+  const reverse = str => {
+    if (str.length == 1) return str; 
+    let newString = str[str.length-1]; // при каждом вызове последний символ записываем в переменную newString
+    return newString += reverse( str.substring(0, str.length-1) ); // в каждый новый вызов передаем строку без последнего символа
+  }
+
+  if (str[0] == '-') {
+    return parseInt(`-${reverse( str.substring(1) )}`);
+  } else {
+    return parseInt(reverse(str));
+  }
+}
+
+// Тесты для задачи 7
+assert.equal(reverseInt(13), 31); // 31
+assert.equal(reverseInt(-123), -321); // -321
+assert.equal(reverseInt(0), 0); // 0
+assert.equal(reverseInt(-1), -1); // -1
+assert.equal(reverseInt(-10), -1); // -1
+assert.equal(reverseInt(-9), -9); // -9
+assert.equal(reverseInt(9), 9); // 9
+assert.equal(reverseInt(930), 39); // 39
 
 // Задача 8 Счастливый билет
 
