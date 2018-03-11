@@ -2,7 +2,7 @@
   "name": "one",
   "version": "1.0.0",
   "description": "Учусь разворачивать проект",
-  "main": "dist/index.js",
+  "main": "dist/practise.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel",
