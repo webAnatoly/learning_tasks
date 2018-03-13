@@ -130,3 +130,24 @@ assert.equal(diff(120, 280), 160) //=== 160;
 // Задача 10 Фасад
 // https://ru.hexlet.io/challenges/programming_basics_reexport
 import * as math from './math';
+
+
+
+// Задача 11 Идеальные числа
+// Создайте функцию isPerfect, которая принимает число и возвращает true, если оно совершенное, и false — в ином случае.
+// Совершенное число — это положительное целое число, равное сумме его положительных делителей (не считая само число). 
+// Например, 6 — идеальное число, потому что 6 = 1 + 2 + 3.
+import isPerfect from './isPerfect.js';
+
+assert.equal(isPerfect('6'), true); 
+assert.equal(isPerfect('7b'), false); 
+assert.equal(isPerfect('6b'), false); 
+assert.equal(isPerfect(6), true); 
+assert.equal(isPerfect(7), false); 
+assert.equal(isPerfect(28), true); 
+assert.equal(isPerfect(496), true);
+assert.equal(isPerfect(196), false);
+
+
+
+
