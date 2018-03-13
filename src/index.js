@@ -151,3 +151,20 @@ assert.equal(isPerfect(196), false);
 
 
 
+
+// Задача 12 Степень тройки
+// Реализуйте и экспортируйте по умолчанию функцию isPowerOfThree, которая определяет, является ли переданное число 
+// натуральной степенью тройки. Например, число 27 это третья степень (3^3), а 81 это четвертая (3^4).
+import isPowerOfThree from './isPowerOfThree.js';
+
+// Тесты для задачи 12
+assert.equal(isPowerOfThree(1),true); // true (3^0)
+assert.equal(isPowerOfThree(2),false); // false
+assert.equal(isPowerOfThree(9),true); // true (3^2)
+assert.equal(isPowerOfThree(27),true);
+assert.equal(isPowerOfThree(30),false);
+
+
+
+
+
