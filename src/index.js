@@ -126,3 +126,7 @@ assert.equal(diff(0, 45), 45) //=== 45;         // не 315, а 45, потому
 assert.equal(diff(0, 180), 180) //=== 180;
 assert.equal(diff(0, 190), 170) //=== 170;       // не 190, а 170, потому что 170 меньше
 assert.equal(diff(120, 280), 160) //=== 160;
+
+// Задача 10 Фасад
+// https://ru.hexlet.io/challenges/programming_basics_reexport
+import * as math from './math';
