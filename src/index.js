@@ -169,7 +169,6 @@ assert.equal(isPowerOfThree(30),false);
 // Реализуйте и экспортируйте по умолчанию функцию, которая принимает на вход количество минут (прошедших с начала суток) 
 // и возвращает строку, являющуюся временем в формате чч:мм.
 import formattedTime from './formattedTime.js';
-console.log(formattedTime(10000));
 
 // Тесты к задаче 13
 assert.equal(formattedTime(5), '00:05'); // 00:05
