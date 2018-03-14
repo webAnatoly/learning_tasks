@@ -6,7 +6,7 @@ const assert = require('assert');
 
 // Задача 1 Инвертированный регистр
 // Реализуйте функцию invertCase, которая меняет в строке регистр каждой буквы на противоположный.
-import invertCase from "./invertCase.js";
+import invertCase from './invertCase';
 // Тесты для задачи 1
 assert.equal(invertCase('Hello, World!'), 'hELLO, wORLD!'); // hELLO, wORLD!
 assert.equal(invertCase('I loVe JS'), 'i LOvE js'); // i LOvE js
@@ -94,7 +94,7 @@ assert.equal(isHappyNumber(798765432), 'A lot of iteration'); // должно в
 
 // Задача 7 Переворот числа
 // Реализуйте функцию, которая переворачивает цифры в переданном числе и возвращает новое число.
-import reverseInt from "./reverseInt.js";
+import reverseInt from './reverseInt';
 // Тесты для задачи 7
 assert.equal(reverseInt(13), 31); // 31
 assert.equal(reverseInt(-123), -321); // -321
@@ -109,7 +109,7 @@ assert.equal(reverseInt(930), 39); // 39
 
 
 // Задача 8 Счастливый билет
-import isHappyTicket from './isHappyTicket.js';
+import isHappyTicket from './isHappyTicket';
 // Тесты для задачи 8
 assert.equal(isHappyTicket(385916), true); // true
 assert.equal(isHappyTicket(231002), false); // false
@@ -137,7 +137,7 @@ import * as math from './math';
 // Создайте функцию isPerfect, которая принимает число и возвращает true, если оно совершенное, и false — в ином случае.
 // Совершенное число — это положительное целое число, равное сумме его положительных делителей (не считая само число). 
 // Например, 6 — идеальное число, потому что 6 = 1 + 2 + 3.
-import isPerfect from './isPerfect.js';
+import isPerfect from './isPerfect';
 
 assert.equal(isPerfect('6'), true); 
 assert.equal(isPerfect('7b'), false); 
@@ -155,7 +155,7 @@ assert.equal(isPerfect(196), false);
 // Задача 12 Степень тройки
 // Реализуйте и экспортируйте по умолчанию функцию isPowerOfThree, которая определяет, является ли переданное число 
 // натуральной степенью тройки. Например, число 27 это третья степень (3^3), а 81 это четвертая (3^4).
-import isPowerOfThree from './isPowerOfThree.js';
+import isPowerOfThree from './isPowerOfThree';
 
 // Тесты для задачи 12
 assert.equal(isPowerOfThree(1),true); // true (3^0)
@@ -168,7 +168,7 @@ assert.equal(isPowerOfThree(30),false);
 // Задача 13 Форматированное время
 // Реализуйте и экспортируйте по умолчанию функцию, которая принимает на вход количество минут (прошедших с начала суток) 
 // и возвращает строку, являющуюся временем в формате чч:мм.
-import formattedTime from './formattedTime.js';
+import formattedTime from './formattedTime';
 
 // Тесты к задаче 13
 assert.equal(formattedTime(5), '00:05'); // 00:05
@@ -178,5 +178,9 @@ assert.equal(formattedTime(67), "01:07"); // 01:07
 assert.equal(formattedTime(175), "02:55"); // 02:55
 assert.equal(formattedTime(600), "10:00"); // 10:00
 assert.equal(formattedTime(754), "12:34"); // 12:34
+
+
+// Задача 14 Функция Аккермана
+import ackermann from './ackermann';
 
 
