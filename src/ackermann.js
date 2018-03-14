@@ -5,7 +5,7 @@
 
 const A = (m, n) => {
   if (m < 0 || n < 0) {
-    return undefined;
+    return;
   }
 
   if (m == 0) return n + 1;
