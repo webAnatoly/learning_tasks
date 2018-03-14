@@ -204,4 +204,3 @@ assert.equal(dnaToRna('ACGTGGTCTTAA'), 'UGCACCAGAAUU'); // 'UGCACCAGAAUU'
 assert.equal(dnaToRna('CCGTA'), 'GGCAU'); // 'GGCAU'
 assert.equal(dnaToRna(''), ''); // ''
 assert.equal(dnaToRna('ACTXUCA'), null); // null
-console.log(dnaToRna('CCGTA'));
