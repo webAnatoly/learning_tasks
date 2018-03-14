@@ -188,7 +188,6 @@ assert.equal(ackermann(0, 0), 1); // 1
 assert.equal(ackermann(2, 1), 5); // 5
 assert.equal(ackermann(2, 3), 9); // 9
 assert.equal(ackermann(2, 5), 13); // 13
-assert.equal(ackermann(2, 5), 13); // 13
 assert.equal(ackermann(3, 5), 253); // 253
 assert.equal(ackermann(-1, 1), undefined); // undefined
 assert.equal(ackermann(1, -1), undefined); // undefined
