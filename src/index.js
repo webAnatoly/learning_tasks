@@ -193,3 +193,15 @@ assert.equal(ackermann(-1, 1), undefined); // undefined
 assert.equal(ackermann(1, -1), undefined); // undefined
 
 
+
+
+
+// Задача 15 Преобразование DNA в RNA
+import dnaToRna from './dnaToRna';
+
+// Tecты для задачи 15
+assert.equal(dnaToRna('ACGTGGTCTTAA'), 'UGCACCAGAAUU'); // 'UGCACCAGAAUU'
+assert.equal(dnaToRna('CCGTA'), 'GGCAU'); // 'GGCAU'
+assert.equal(dnaToRna(''), ''); // ''
+assert.equal(dnaToRna('ACTXUCA'), null); // null
+console.log(dnaToRna('CCGTA'));
