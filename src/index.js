@@ -183,4 +183,12 @@ assert.equal(formattedTime(754), "12:34"); // 12:34
 // Задача 14 Функция Аккермана
 import ackermann from './ackermann';
 
+// Тесты к задаче 14
+assert.equal(ackermann(0, 0), 1); // 1
+assert.equal(ackermann(2, 1), 5); // 5
+assert.equal(ackermann(2, 3), 9); // 9
+assert.equal(ackermann(2, 5), 13); // 13
+assert.equal(ackermann(2, 5), 13); // 13
+assert.equal(ackermann(3, 5), 253); // 253
+
 
