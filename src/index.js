@@ -220,3 +220,22 @@ assert.equal( two(x => x + 1)(0), 2 ); // 2
 
 const four = Succ(Succ(two));
 assert.equal( four(x => x + 1)(0), 4 ); // 4
+
+
+
+
+
+
+
+
+// Композиция функций
+// описание задачи см. в файле compose.js
+import compose from './compose';
+const f = compose(Math.sqrt, Math.abs);
+
+// Тесты 
+assert.equal(compose(v => v, v => v)(10), 10); // => 10
+assert.equal(compose(v => v + 2, v => v)(10), 12); // => 12
+assert.equal(compose(v => v, v => v - 2)(10), 8); // => 8
+assert.equal(compose(v => v ** 2, v => v - 2)(2), 0); // => 0
+assert.equal(compose(v => v - 2, v => v ** 2)(2), 2); // => 2
