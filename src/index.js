@@ -204,3 +204,19 @@ assert.equal(dnaToRna('ACGTGGTCTTAA'), 'UGCACCAGAAUU'); // 'UGCACCAGAAUU'
 assert.equal(dnaToRna('CCGTA'), 'GGCAU'); // 'GGCAU'
 assert.equal(dnaToRna(''), ''); // ''
 assert.equal(dnaToRna('ACTXUCA'), null); // null
+
+
+
+
+
+// Числа Черча
+import { Zero, Succ } from './numerals';
+
+
+// Тесты для задачи "Числа Черча"
+
+const two = Succ(Succ(Zero));
+assert.equal( two(x => x + 1)(0), 2 ); // 2
+
+const four = Succ(Succ(two));
+assert.equal( four(x => x + 1)(0), 4 ); // 4
