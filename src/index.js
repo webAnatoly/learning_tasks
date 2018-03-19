@@ -239,3 +239,28 @@ assert.equal(compose(v => v + 2, v => v)(10), 12); // => 12
 assert.equal(compose(v => v, v => v - 2)(10), 8); // => 8
 assert.equal(compose(v => v ** 2, v => v - 2)(2), 0); // => 0
 assert.equal(compose(v => v - 2, v => v ** 2)(2), 2); // => 2
+
+
+
+
+
+
+
+// Практика: Пары без функций. 
+// подробности задачи см. в файле pairs.js
+import { cons, car, cdr } from './pairs';
+
+
+// Тесты
+const pair = cons(5, 8);	// 2^5 * 3^8 = 209952
+
+assert.equal(cons(5, 8), 209952); // 2^5 * 3^8 = 209952
+assert.equal(car(pair), 5); // 5
+assert.equal(cdr(pair), 8); // 8
+
+
+const pair2 = cons(0, 0);
+
+assert.equal(cons(0, 0), 1);
+assert.equal(car(pair2), 0);
+assert.equal(cdr(pair2), 0);
