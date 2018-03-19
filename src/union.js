@@ -5,3 +5,28 @@
 
 // const result = union(list1, list2);
 // (2, 3, 1, 7, 5, 8, 9)
+
+const union = (list1, list2) => {
+  
+  const arr = [];
+  list1.concat(list2).forEach((n) => {
+    let isInArr = arr.some((number) => number == n);
+    if (!isInArr) {
+      arr.push(n);
+    }
+  });
+
+  return arr;
+
+}
+
+function l() {
+  const arr = [];
+  for (let i = 0; i < arguments.length; i++) {
+    arr[i] = arguments[i];
+  }
+  return arr;
+}
+
+export default union;
+export {l};

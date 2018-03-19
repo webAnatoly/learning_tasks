@@ -264,3 +264,18 @@ const pair2 = cons(0, 0);
 assert.equal(cons(0, 0), 1);
 assert.equal(car(pair2), 0);
 assert.equal(cdr(pair2), 0);
+
+
+
+
+
+// Задача union.js
+import union from './union';
+import { l } from './union';
+
+const list1 = l(2, 3, 2, 1, 7);
+const list2 = l(1, 5, 3, 5, 8, 9);
+
+const result = union(list1, list2);
+// (2, 3, 1, 7, 5, 8, 9)
+assert.equal(union(list1, list2), [2,3,1,7,5,8,9]);
