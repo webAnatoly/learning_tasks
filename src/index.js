@@ -288,8 +288,13 @@ assert.equal(union(list1, list2), '2,3,1,7,5,8,9' );
 // файл zip.js
 import zip from './zip';
 
-// const list3 = l(1, 5, 3, 8, 9);
-// const list4 = l(2, 3, 2, 1);
+const list3 = l(1, 5, 3, 8, 9);
+const list4 = l(2, 3, 2, 1);
 
 // //  ((1, 2), (5, 3), (3, 2), (8, 1))
-// const result = zip(list1, list2);
+const result2 = zip(list3, list4);
+// Задачу решил. Возвращает массив в массивов вида 
+// [ [ 1, 2 ], [ 5, 3 ], [ 3, 2 ], [ 8, 1 ] ]
+// Тесты пока что еще не написал. 
+
+
