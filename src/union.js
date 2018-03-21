@@ -16,17 +16,13 @@ const union = (list1, list2) => {
     }
   });
 
-  return arr;
+  const listAsString = arr.toString();
+
+  return listAsString;
 
 }
 
-function l() {
-  const arr = [];
-  for (let i = 0; i < arguments.length; i++) {
-    arr[i] = arguments[i];
-  }
-  return arr;
-}
+const l = (...items) => items; 
 
 export default union;
 export {l};
