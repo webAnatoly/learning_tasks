@@ -269,7 +269,8 @@ assert.equal(cdr(pair2), 0);
 
 
 
-// Задача union.js
+// Задача "Уникальное объединение" 
+// файл union.js 
 import union from './union';
 import { l } from './union';
 
