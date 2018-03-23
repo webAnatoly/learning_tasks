@@ -22,7 +22,4 @@ const union = (list1, list2) => {
 
 }
 
-const l = (...items) => items; 
-
 export default union;
-export {l};

@@ -272,7 +272,7 @@ assert.equal(cdr(pair2), 0);
 // Задача "Уникальное объединение" 
 // файл union.js 
 import union from './union';
-import { l } from './union';
+import { l } from './customDataStructuries';
 
 const list1 = l(2, 3, 2, 1, 7);
 const list2 = l(1, 5, 3, 5, 8, 9);
