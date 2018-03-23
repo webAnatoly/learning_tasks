@@ -337,3 +337,9 @@ assert.equal(l.map(item => item.toUpperCase(), list5), '(FOO, BAR, BAZ)');
 // reduce(callback, init, list) - производит свертывание списка
 const result3 = l.reduce((item, acc) => acc ? `${acc},${item}` : item, '', list5);
 assert.equal(l.reduce((item, acc) => acc ? `${acc},${item}` : item, '', list5), 'foo,bar,baz');
+
+
+
+// Задача про ферзей
+import isSafeQueens from './isSafeQueens';
+console.log(isSafeQueens());
