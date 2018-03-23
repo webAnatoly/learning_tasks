@@ -298,3 +298,42 @@ const result2 = zip(list3, list4);
 // Тесты пока что еще не написал. 
 
 
+// Задача "Списки на базе строк"
+// https://ru.hexlet.io/challenges/js_sequences_list
+const list5 = l('foo', 'bar', 'baz');
+l.toString(list5); // (foo, bar, baz)
+assert.equal(l.toString(list5), '(foo, bar, baz)');
+
+
+// head(list5) - возвращает первый элемент списка
+const first = l.head(list5); // 'foo'
+assert.equal(l.head(list5), 'foo');
+
+
+// tail(list) - возвращает "хвост" списка (все элементы, кроме первого)
+const rest = l.tail(list5); // l('bar', 'baz')
+assert.equal(l.tail(list5), '(bar, baz)');
+
+// isEmpty(list) - проверяет, является ли список пустым
+assert.equal(l.isEmpty(list5), false);
+assert.equal(l.isEmpty(l()), true);
+
+
+// cons(item, list) - добавляет элемент в начало списка и возвращает новый список
+const newList = l.cons('bas', list5); // l('bas', 'foo', 'bar', 'baz')
+assert.equal(l.cons('bas', list5), '(bas, foo, bar, baz)');
+
+
+// filter(predicate, list) - фильтрует список, используя предикат
+const filteredList = l.filter(item => item[0] === 'b', list5); // l('bar', 'baz')
+assert.equal(l.filter(item => item[0] === 'b', list5), '(bar, baz)');
+
+
+// l.map(callback, list) - преобразует список, используя callback-функцию
+assert.equal(l.map(item => item[0], list5), '(f, b, b)');
+assert.equal(l.map(item => item.toUpperCase(), list5), '(FOO, BAR, BAZ)');
+
+
+// reduce(callback, init, list) - производит свертывание списка
+const result3 = l.reduce((item, acc) => acc ? `${acc},${item}` : item, '', list5);
+assert.equal(l.reduce((item, acc) => acc ? `${acc},${item}` : item, '', list5), 'foo,bar,baz');
