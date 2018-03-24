@@ -66,23 +66,4 @@ const isSafeQueens = (...items) => {
   return result;
 }
 
-// const fillDiagonal = (board, items) => {
-//   console.log(board);
-//   let row = 0;
-//   let col = 0;
-
-//   if (board[-1]) {
-//     console.log('works');
-//   } else {
-//     console.log('Does not work');
-//   }
-// }
-// fillDiagonal(isSafeQueens(1));
-
-// Заполнять вертикали, горизонтали и диаганали. И во время заполнения делать
-// проверку, если ячейка уже заполнена, то возвращать false;
-// Заполнить весь горизонтальный ряд
-// Заполнить весь вертикальный ряд
-// Заполнирь диагонали
-
 export default isSafeQueens;

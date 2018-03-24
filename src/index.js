@@ -341,6 +341,7 @@ assert.equal(l.reduce((item, acc) => acc ? `${acc},${item}` : item, '', list5), 
 
 
 // Задача про ферзей
+// https://ru.hexlet.io/courses/sequences
 import isSafeQueens from './isSafeQueens';
 
 assert.equal(isSafeQueens(1,3), true);
