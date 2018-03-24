@@ -342,4 +342,9 @@ assert.equal(l.reduce((item, acc) => acc ? `${acc},${item}` : item, '', list5), 
 
 // Задача про ферзей
 import isSafeQueens from './isSafeQueens';
-console.log(isSafeQueens());
+
+assert.equal(isSafeQueens(1,3), true);
+assert.equal(isSafeQueens(2,4,1,3), true);
+assert.equal(isSafeQueens(2,4,1,1), false);
+assert.equal(isSafeQueens(1,5,2,6,3,7,4), true);
+assert.equal(isSafeQueens(1,5,2,6,3,7,8), false);

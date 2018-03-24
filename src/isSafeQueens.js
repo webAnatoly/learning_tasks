@@ -16,7 +16,73 @@
 // позиция ферзя по горизонтали.
 
 const isSafeQueens = (...items) => {
-  // your code here
+  const board = [
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0]
+  ]
+
+  let result = true;
+
+  items.map((row, col) => {
+    row = row-1;
+
+    if (board[row][col] == 1) result = false;
+    
+    for (let i = 0; i < 8; i++) {
+      board[row][i] = 1; // заполнить текущий горизонтальный ряд единицами
+      board[i][col] = 1; // заполнить текущий вертикальный ряд единицами
+
+      // заполнить диагонали
+      if (i > 0) { 
+        // вправо-вниз
+        if(board[row+i] != undefined && board[row+i][col+i] != undefined) {
+          board[row+i][col+i] = 1;
+        }
+
+        // вправо-вверх
+        if(board[row-i] != undefined && board[row-i][col+i] != undefined) {
+          board[row-i][col+i] = 1;
+        }
+
+        // влево-вниз
+        if(board[row+i] != undefined && board[row+i][col-i] != undefined) {
+          board[row+i][col-i] = 1;
+        }
+
+        // влево-вверх
+        if(board[row+i] != undefined && board[row+i][col+i] != undefined) {
+          board[row+i][col+i] = 1;
+        }
+      }
+    } 
+  });
+
+  return result;
 }
+
+// const fillDiagonal = (board, items) => {
+//   console.log(board);
+//   let row = 0;
+//   let col = 0;
+
+//   if (board[-1]) {
+//     console.log('works');
+//   } else {
+//     console.log('Does not work');
+//   }
+// }
+// fillDiagonal(isSafeQueens(1));
+
+// Заполнять вертикали, горизонтали и диаганали. И во время заполнения делать
+// проверку, если ячейка уже заполнена, то возвращать false;
+// Заполнить весь горизонтальный ряд
+// Заполнить весь вертикальный ряд
+// Заполнирь диагонали
 
 export default isSafeQueens;
