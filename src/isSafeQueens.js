@@ -27,12 +27,13 @@ const isSafeQueens = (...items) => {
     [0,0,0,0,0,0,0,0]
   ]
 
-  let result = true;
+  // let result = true;
 
-  items.map((row, col) => {
-    row = row-1;
+  for (let n = 0; n < items.length; n++) {
+    let row = items[n]-1;
+    let col = n;
 
-    if (board[row][col] == 1) result = false;
+    if (board[row][col] == 1) return false; // проверить попадает ли ферзь под бой другого ферзя
     
     for (let i = 0; i < 8; i++) {
       board[row][i] = 1; // заполнить текущий горизонтальный ряд единицами
@@ -61,9 +62,9 @@ const isSafeQueens = (...items) => {
         }
       }
     } 
-  });
+  }
 
-  return result;
+  return true;
 }
 
 export default isSafeQueens;
