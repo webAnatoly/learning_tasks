@@ -4,9 +4,19 @@
 // flatten(list);
 // https://ru.hexlet.io/courses/sequences
 
-const flatten = (list) => {
-  console.log(newList);
-  return (newList);
+
+const flatten = (list, acc) => {
+
+  if (!acc) { acc = [] }
+  
+  for (let i = 0; i < list.length; i++) {
+    if(list[i].length != undefined) {
+      flatten(list[i], acc);
+    } else {
+      acc.push(list[i]);
+    }
+  }
+  return (acc);
 }
 
 export default flatten;

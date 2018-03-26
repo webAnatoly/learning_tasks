@@ -360,4 +360,7 @@ assert.equal(isSafeQueens(1,5,2,6,3,7,8), false);
 
 import flatten from './flatten';
 const list6 = l(1, 2, l(3, 5), l(l(4, 3), 2));
-flatten(list6);
+const list7 = l( l(100,5, l(l(l(l(l(l(2,4)))),l(3,5,l(l(5,7,8)))))),4);
+
+assert.equal(flatten(list6).toString(), '1,2,3,5,4,3,2');
+assert.equal(flatten(list7).toString(), '100,5,2,4,3,5,5,7,8,4');
