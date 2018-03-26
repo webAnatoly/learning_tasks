@@ -364,3 +364,21 @@ const list7 = l( l(100,5, l(l(l(l(l(l(2,4)))),l(3,5,l(l(5,7,8)))))),4);
 
 assert.equal(flatten(list6).toString(), '1,2,3,5,4,3,2');
 assert.equal(flatten(list7).toString(), '100,5,2,4,3,5,5,7,8,4');
+
+
+
+
+// Задача: "Первые n элементов"
+// Реализуйте и экспортируйте по умолчанию функцию take, которая возвращает список, 
+// состоящий из первых n (значение передается первым параметром) элементов исходного 
+// (переданного вторым параметром) списка. Остальные детали работы функции демонстрирует нижеприведённый код:
+
+// take(3, l()); // ()
+// take(3, l(1, 2)); // (1, 2)
+// take(1, l(7, 2)); // (7)
+import takeNs from './takens';
+assert.equal(l.toString( takeNs(3, l()) ), '()');
+assert.equal(l.toString( takeNs(3, l(1, 2)) ), '(1, 2)');
+assert.equal(l.toString( takeNs(1, l(7, 2)) ), '(7)');
+assert.equal(l.toString( takeNs(100, l(7, 2, 4, 7, 8)) ), '(7, 2, 4, 7, 8)');
+assert.equal(l.toString( takeNs(0, l(7, 2, 4, 7, 8)) ), '()');
