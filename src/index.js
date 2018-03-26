@@ -382,3 +382,15 @@ assert.equal(l.toString( takeNs(3, l(1, 2)) ), '(1, 2)');
 assert.equal(l.toString( takeNs(1, l(7, 2)) ), '(7)');
 assert.equal(l.toString( takeNs(100, l(7, 2, 4, 7, 8)) ), '(7, 2, 4, 7, 8)');
 assert.equal(l.toString( takeNs(0, l(7, 2, 4, 7, 8)) ), '()');
+
+
+
+// Задача: "Одинаковая четность"
+import sameParity from './sameparity';
+
+assert.equal(l.toString( sameParity(l(-1, 0, 1, -3, 10, -2)) ), '(-1, 1, -3)');
+assert.equal(l.toString( sameParity(l(-2, 0, 1, -3, 10, -2)) ), '(-2, 0, 10, -2)');
+assert.equal(l.toString( sameParity(l(5, 0, 1, -3, 10, -2)) ), '(5, 1, -3)');
+assert.equal(l.toString( sameParity(l()) ), '()');
+assert.equal(l.toString( sameParity(l(-1)) ), '(-1)');
+assert.equal(l.toString( sameParity(l(0, 4, -7, -2, 5, 10)) ), '(0, 4, -2, 10)');
