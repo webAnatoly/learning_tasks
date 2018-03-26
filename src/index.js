@@ -349,3 +349,15 @@ assert.equal(isSafeQueens(2,4,1,3), true);
 assert.equal(isSafeQueens(2,4,1,1), false);
 assert.equal(isSafeQueens(1,5,2,6,3,7,4), true);
 assert.equal(isSafeQueens(1,5,2,6,3,7,8), false);
+
+
+
+
+// Задача: "Выравнивание"
+// Реализуйте и экспортируйте по умолчанию функцию flatten, которая делает плоским вложенный список.
+// const list = l(1, 2, l(3, 5), l(l(4, 3), 2));
+// (1, 2, 3, 5, 4, 3, 2)
+
+import flatten from './flatten';
+const list6 = l(1, 2, l(3, 5), l(l(4, 3), 2));
+flatten(list6);
