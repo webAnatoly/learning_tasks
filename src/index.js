@@ -394,3 +394,10 @@ assert.equal(l.toString( sameParity(l(5, 0, 1, -3, 10, -2)) ), '(5, 1, -3)');
 assert.equal(l.toString( sameParity(l()) ), '()');
 assert.equal(l.toString( sameParity(l(-1)) ), '(-1)');
 assert.equal(l.toString( sameParity(l(0, 4, -7, -2, 5, 10)) ), '(0, 4, -2, 10)');
+
+
+// Задача: "Быстрая сортировка"
+import quicksort from './quicksort';
+
+assert.equal( quicksort([5, 7, 10, 3, 1, 11, -4, 9, 6, 2, -6]).toString(), '-6,-4,1,2,3,5,6,7,9,10,11' )
+assert.equal( quicksort([-1, 7, 10, 3, 1, 11]).toString(), '-1,1,3,7,10,11' )
