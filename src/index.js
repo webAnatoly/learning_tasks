@@ -401,3 +401,28 @@ import quicksort from './quicksort';
 
 assert.equal( quicksort([5, 7, 10, 3, 1, 11, -4, 9, 6, 2, -6]).toString(), '-6,-4,1,2,3,5,6,7,9,10,11' )
 assert.equal( quicksort([-1, 7, 10, 3, 1, 11]).toString(), '-1,1,3,7,10,11' )
+
+
+
+
+
+
+// Практические задания из курса: "JS:Коллекции"
+// https://ru.hexlet.io/courses/js_collections
+// Задание: "Нечетное количество"
+import findOdd from './findOdd';
+assert.deepEqual(findOdd([2,2,3,1,2,1,4,3]), [2, 4]);
+assert.deepEqual(findOdd([]), []);
+assert.deepEqual(findOdd([2,2,2]), [2]);
+assert.deepEqual(findOdd([2,2]), []);
+assert.deepEqual(findOdd([2,2,3,4]), [3,4]);
+assert.deepEqual(findOdd([2,3,4,2]), [3,4]);
+assert.deepEqual(findOdd([2,3]), [2,3]);
+assert.deepEqual(findOdd([2,2,2,2]), []);
+assert.deepEqual(findOdd([0]), [0]);
+assert.deepEqual(findOdd([4,5,4,5,5,4,5,4]), []);
+assert.deepEqual(findOdd([4,5,4,5,5,4,5,4,9]), [9]);
+assert.deepEqual(findOdd([2,3,4,5,1]), [1,2,3,4,5]);
+assert.deepEqual(findOdd([2,3,4,5,2,1]), [1,3,4,5]);
+assert.deepEqual(findOdd([-2,3,4,5,2,1]), [-2,1,2,3,4,5]);
+assert.deepEqual(findOdd([-2,-2,-22,4,1,1]), [-22,4]);
