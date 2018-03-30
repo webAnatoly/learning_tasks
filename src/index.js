@@ -439,3 +439,23 @@ assert.deepEqual(findOdd([-2,-2,-22,4,1,1]), [-22,4]);
 import bqs from './buildQueryString';
 
 assert.equal(bqs({ per: 10, page: 1 }), 'page=1&per=10');
+
+
+
+
+
+
+
+
+
+// Практические задания из курса: "JS:Коллекции"
+// https://ru.hexlet.io/courses/js_collections
+// Задание: "Поиск ближайшего соседа"
+// findIndexOfNearest([], 2); // null
+// findIndexOfNearest([15, 10, 3, 4], 0) // 2
+import findIndexOfNearest from './findIndexOfNearest';
+assert.equal(findIndexOfNearest([], 2), null);
+assert.equal(findIndexOfNearest([15, 10, 3, 4], 0), 2);
+assert.equal(findIndexOfNearest([15, 13, 3, 4], 12), 1);
+assert.equal(findIndexOfNearest([15, 13, 3, 4], 14), 0);
+assert.equal(findIndexOfNearest([15, 13, 4, 3, 1], 2), 3);
