@@ -426,3 +426,16 @@ assert.deepEqual(findOdd([2,3,4,5,1]), [1,2,3,4,5]);
 assert.deepEqual(findOdd([2,3,4,5,2,1]), [1,3,4,5]);
 assert.deepEqual(findOdd([-2,3,4,5,2,1]), [-2,1,2,3,4,5]);
 assert.deepEqual(findOdd([-2,-2,-22,4,1,1]), [-22,4]);
+
+
+
+
+
+
+
+// Практические задания из курса: "JS:Коллекции"
+// https://ru.hexlet.io/courses/js_collections
+// Задание: "Сборщик строки запроса"
+import bqs from './buildQueryString';
+
+assert.equal(bqs({ per: 10, page: 1 }), 'page=1&per=10');
