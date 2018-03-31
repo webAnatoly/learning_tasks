@@ -459,3 +459,16 @@ assert.equal(findIndexOfNearest([15, 10, 3, 4], 0), 2);
 assert.equal(findIndexOfNearest([15, 13, 3, 4], 12), 1);
 assert.equal(findIndexOfNearest([15, 13, 3, 4], 14), 0);
 assert.equal(findIndexOfNearest([15, 13, 4, 3, 1], 2), 3);
+
+
+
+
+
+
+// Практические задания из курса: "JS:Коллекции"
+// https://ru.hexlet.io/courses/js_collections
+// Задание: "NRZI кодирование"
+import nrzi from './nrzi';
+const signal = "_|¯|____|¯|__|¯¯¯" // "011000110100"
+assert.equal(nrzi(signal), '011000110100');
+assert.equal(nrzi("¯|____|¯¯"), '0100010');
