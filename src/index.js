@@ -497,3 +497,19 @@ assert.deepEqual(enlargeArrayImage(imgArr),
 [ '*', '*', ' ', ' ', ' ', ' ', '*', '*' ],
 [ '*', '*', '*', '*', '*', '*', '*', '*' ],
 [ '*', '*', '*', '*', '*', '*', '*', '*' ] ]);
+
+
+
+
+
+// Функция принимает на вход два массива, а возвращает массив, 
+// составленный из элементов первого, которых нет во втором.
+import diffArr from './diffArr';
+assert.deepEqual(diffArr([2, 1], [2, 3]), [1]);
+assert.deepEqual(diffArr([2], [2, 3]), []);
+assert.deepEqual(diffArr([2, 1], [4, 3]), [2, 1]);
+assert.deepEqual(diffArr([], []), []);
+assert.deepEqual(diffArr([1], [2]), [1]);
+assert.deepEqual(diffArr([1], []), [1]);
+// assert.deepEqual(diffArr([], [4]), []);
+console.log('works');
