@@ -5,6 +5,6 @@
 
 export default (arr1, arr2) => {
 
-  return arr1.filter(n => { return !arr2.some(a => a == n) });
+  return arr1.filter(n => { return !arr2.includes(n) });
 
 }
