@@ -511,5 +511,4 @@ assert.deepEqual(diffArr([2, 1], [4, 3]), [2, 1]);
 assert.deepEqual(diffArr([], []), []);
 assert.deepEqual(diffArr([1], [2]), [1]);
 assert.deepEqual(diffArr([1], []), [1]);
-// assert.deepEqual(diffArr([], [4]), []);
-console.log('works');
+assert.deepEqual(diffArr([], [4]), []);
