@@ -513,3 +513,17 @@ assert.deepEqual(diffArr([1], [2]), [1]);
 assert.deepEqual(diffArr([1], []), [1]);
 assert.deepEqual(diffArr([1,2], []), [1,2]);
 assert.deepEqual(diffArr([], [4]), []);
+
+
+
+
+
+// Функция принимает на вход массив и элементы, которые должны отсутствовать 
+// в возвращаемом массиве.
+import without from './without';
+assert.deepEqual(without([2,1,2,3], 1,2,5), [3]);
+assert.deepEqual(without([2,1,2,3,3], 1,2,5), [3, 3]);
+assert.deepEqual(without([], 1,2,5), []);
+assert.deepEqual(without([]), []);
+assert.deepEqual(without([1,2,3]), [1,2,3]);
+assert.deepEqual(without([1,2,3,5], 2,2,3,3,1), [5]);
