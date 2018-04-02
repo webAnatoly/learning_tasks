@@ -527,3 +527,21 @@ assert.deepEqual(without([], 1,2,5), []);
 assert.deepEqual(without([]), []);
 assert.deepEqual(without([1,2,3]), [1,2,3]);
 assert.deepEqual(without([1,2,3,5], 2,2,3,3,1), [5]);
+
+
+
+
+
+
+// Пересечение массивов
+import intersection from './intersection';
+assert.deepEqual(intersection([2, 1], [2, 3]), [2]);
+assert.deepEqual(intersection([3, 1, 3], [3, 3, 2]), [3]);
+assert.deepEqual(intersection(
+  ['kirill', 'rakhim', 'alex', 'dima', 'dzhamshut'],
+  ['ippolit', 'rakhim', 'dima', 'schtirlitz', 'kirill', 'alex', 'alibaba']
+), ['kirill', 'rakhim', 'alex', 'dima']);
+assert.deepEqual(intersection([],[]), []);
+assert.deepEqual(intersection([1],[]), []);
+assert.deepEqual(intersection([1],[2]), []);
+assert.deepEqual(intersection([],[1]), []);
