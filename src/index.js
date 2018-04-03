@@ -568,3 +568,15 @@ assert.deepEqual(chunkArr(['a', 'b', 'c', 'd'], 1), [['a'], ['b'], ['c'], ['d']]
 assert.deepEqual(chunkArr(['a'], 4), [['a']]);
 assert.deepEqual(chunkArr([], 4), []);
 assert.deepEqual(chunkArr([], 0), []);
+
+
+
+
+
+// fromPairsToObj.js
+// Функция принимает на вход массив, состоящий из массивов-пар и возвращает объект, полученный из этих пар.
+import fromPairsToObj from './fromPairsToObj';
+assert.deepEqual(fromPairsToObj([['fred', 30], ['barney', 40]]), { 'fred': 30, 'barney': 40 });
+assert.deepEqual(fromPairsToObj([['fred', 30]]), { 'fred': 30 });
+assert.deepEqual(fromPairsToObj([]), {});
+assert.deepEqual(fromPairsToObj(), {});
