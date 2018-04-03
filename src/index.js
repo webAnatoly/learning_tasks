@@ -545,3 +545,26 @@ assert.deepEqual(intersection([],[]), []);
 assert.deepEqual(intersection([1],[]), []);
 assert.deepEqual(intersection([1],[2]), []);
 assert.deepEqual(intersection([],[1]), []);
+
+
+
+
+
+
+
+// Чанкование массива (описание см. в chunk.js)
+// chunk(['a', 'b', 'c', 'd'], 2);
+// → [['a', 'b'], ['c', 'd']]
+
+// chunk(['a', 'b', 'c', 'd'], 3);
+// → [['a', 'b', 'c'], ['d']]
+
+import chunkArr from './chunkArr';
+assert.deepEqual(chunkArr(['a', 'b', 'c', 'd'], 2), [['a', 'b'], ['c','d']]);
+assert.deepEqual(chunkArr(['a', 'b', 'c', 'd'], 3), [['a', 'b', 'c'], ['d']]);
+assert.deepEqual(chunkArr(['a', 'b', 'c', 'd'], 4), [['a', 'b', 'c', 'd']]);
+assert.deepEqual(chunkArr(['a', 'b', 'c', 'd'], 0), ['a', 'b', 'c', 'd']);
+assert.deepEqual(chunkArr(['a', 'b', 'c', 'd'], 1), [['a'], ['b'], ['c'], ['d']]);
+assert.deepEqual(chunkArr(['a'], 4), [['a']]);
+assert.deepEqual(chunkArr([], 4), []);
+assert.deepEqual(chunkArr([], 0), []);
