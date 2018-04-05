@@ -52,5 +52,60 @@
     <p><span>Alexey Primadonin</p></span>
     <p>ул.Полевая, 12, Астрахань, Россия +7 000 111 00 00, <a href="#">ap@asdfmail.com</a></p>
   </div>
+  <script>
+    // Function.prototype.wrap = function (callback) {
+    //   original = this;
+    //   return function(...args) { return callback(original, ...args) };
+    // }
+
+    Function.prototype.wrap = function (f) {
+      return (...args) => f(this, ...args)
+    };
+
+    function speak(name) {
+      return `Hello ${name}`;
+    }
+
+    const newSpeak = speak.wrap((original, yourName, myName) => {
+      const greeting = original(yourName);
+      return `${greeting}, my name is ${myName}`;
+    });
+
+    newSpeak('Mary', 'Kate'); // Hello Mary, my name is Kate
+
+    Object.prototype.hash = function (string) {
+      let arr = string.split('.');
+      let obj = this;
+      let result;
+      for (let i = 0; i < arr.length; i++) {
+        if (obj) { 
+          result = (obj[arr[i]]);
+          if (result === undefined) {
+            return;
+          }
+          obj = obj[arr[i]];
+        }
+      }
+      return obj;
+    }
+
+    const obj = {
+      person: {
+        name: 'joe',
+        history: {
+          hometown: 'bratislava',
+          bio: {
+            funFact: 'I like fishing.',
+          },
+        },
+      },
+    };
+
+    obj.hash('car'); // undefined
+    obj.hash('person.history.bio'); // { funFact: 'I like fishing.' }
+    obj.hash('person.history.homeStreet'); // undefined
+    obj.hash('person.animal.pet.needNoseAntEater'); // undefined
+
+  </script>
 </body>
 </html>
