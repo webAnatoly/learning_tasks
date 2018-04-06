@@ -76,15 +76,7 @@
     Object.prototype.hash = function (string) {
       let arr = string.split('.');
       let obj = this;
-      let result;
       for (let i = 0; i < arr.length; i++) {
-        // if (obj) { 
-        //   result = (obj[arr[i]]);
-        //   if (result === undefined) {
-        //     return;
-        //   }
-        //   obj = obj[arr[i]];
-        // }
         if (obj[arr[i]] === undefined) {
           return;
         }
