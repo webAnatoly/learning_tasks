@@ -47,16 +47,43 @@
       <li>Guitar</li>
       <li>Movies</li>
     </ul>
+    <br>
+    <button id="btn">Click to see newArr</button>
   </div>
   <div id="footer">
     <p><span>Alexey Primadonin</p></span>
     <p>ул.Полевая, 12, Астрахань, Россия +7 000 111 00 00, <a href="#">ap@asdfmail.com</a></p>
   </div>
   <script>
-    // Function.prototype.wrap = function (callback) {
-    //   original = this;
-    //   return function(...args) { return callback(original, ...args) };
-    // }
+
+    const asyncMap = (coll, fn, callback) => {
+      if (coll.length === 0) {
+        console.log(callback.toString());
+        callback(coll);
+        return;
+      }
+      const iter = ([head, ...rest], acc) => {
+        const newAcc = [...acc, fn(head)];
+        if (rest.length === 0) {
+          callback(newAcc);
+          return;
+        }
+        setTimeout(iter, 0, rest, newAcc);
+      };
+      iter(coll, []);
+    };
+
+    let arr = [1, 2, 3];
+    let newArr = 'yet not array';
+
+    // Реализация асинхронной функции map
+    asyncMap([1, 2, 3], n => n * n, (n) => { newArr = n; return });
+    setTimeout(console.log, 1000, newArr, 'delayed'); // 'yet not array'
+    console.log(newArr); // 'just string'
+    let btn = document.getElementById('btn');
+        // newArr станет равно [1,4,9] только когда до него дойдет очередь.
+    btn.addEventListener('click', ()=>alert(newArr));  // [1,4,9]
+    console.log(newArr); // 'yet not array'
 
     Function.prototype.wrap = function (f) {
       return (...args) => f(this, ...args)
