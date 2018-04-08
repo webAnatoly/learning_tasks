@@ -13,7 +13,8 @@ const functions = [
     } else {
       updateBody = `First string!`;
     }
-    cb(err, `${updateBody}\nAppend something!`);
+    // cb(err, `${updateBody}\nAppend something!`);
+    setTimeout(cb, 4000, err, updateBody);
   }),
   (body, cb) => fs.writeFile(myFile, body, err => {
     cb(err);
