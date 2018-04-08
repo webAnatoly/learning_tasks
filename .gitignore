@@ -4,3 +4,4 @@ dist
 .idea
 .tasks
 .vscode
+/src/async/test
