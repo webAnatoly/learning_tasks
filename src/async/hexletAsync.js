@@ -5,7 +5,7 @@ export default {
 
     const next = ([head, ...rest], previousResult) => {
       const cb = (err, ...args) => {
-        if (err) {return callback(err, args); }
+        if (err) { return callback(err, args); }
         if (rest.length === 0) {
           callback(err, args);
         } else {

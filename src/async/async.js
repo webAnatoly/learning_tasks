@@ -1,20 +1,24 @@
 // тренировка асинхронного прграммирования
 
 import fs from 'fs';
+import path from 'path';
+
 import hexletAsync from './hexletAsync';
 
-const myFile = '/home/tolik/Projects/hexlet/src/async/test';
+const myFile = path.join(__dirname, '../../', '/files/test');
 
 const functions = [
   cb => fs.readFile(myFile, (err, body) => {
-    let updateBody;
-    if (body.length > 0) {
-      updateBody = `${body}\nAppend something!`;
-    } else {
-      updateBody = `First string!`;
+    let updatedBody;
+    if (!err) {
+      if (body.length > 0) {
+        updatedBody = `${body}\nAppend something!`;
+      } else {
+        updatedBody = `First string!`;
+      }
     }
-    // cb(err, `${updateBody}\nAppend something!`);
-    setTimeout(cb, 4000, err, updateBody);
+    // setTimeout(cb, 1000, err, body);
+    cb(err, updatedBody);
   }),
   (body, cb) => fs.writeFile(myFile, body, err => {
     cb(err);
@@ -38,15 +42,15 @@ hexletAsync.waterfall(functions, err => {
 
 //   console.log('Это содержимое файла \n', body);
 
-//   let updateBody;
+//   let updatedBody;
 
 //   if (body.length > 0) {
-//     updateBody = `${body}\nAppend something!`;
+//     updatedBody = `${body}\nAppend something!`;
 //   } else {
-//     updateBody = `First string!`;
+//     updatedBody = `First string!`;
 //   }
 
-//   fs.writeFile(myFile, updateBody, err => {
+//   fs.writeFile(myFile, updatedBody, err => {
 //     if (err) {
 //       console.log('ошибка на этапе записи файла');
 //       console.log(err.message);
