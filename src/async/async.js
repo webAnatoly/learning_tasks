@@ -7,6 +7,7 @@ import hexletAsync from './hexletAsync';
 
 const myFile = path.join(__dirname, '../../', '/files/test');
 
+// Реализация чтения и записи файла с использованием waterfall
 const functions = [
   cb => fs.readFile(myFile, (err, body) => {
     let updatedBody;
@@ -30,8 +31,8 @@ hexletAsync.waterfall(functions, err => {
   }
 });
 
-// ============================
 
+// ======== Реализация чтения и записи файла посредством обычных колбеков.
 
 // fs.readFile(myFile, 'utf8', (err, body) => {
 //   if (err) {
