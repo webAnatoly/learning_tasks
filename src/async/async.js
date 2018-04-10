@@ -31,6 +31,30 @@ hexletAsync.waterfall(functions, err => {
   }
 });
 
+let openFiles = [
+  'https://gist.github.com/webAnatoly/44f94831200cfcfe21036a3ec93677ab.js',
+  'https://gist.github.com/webAnatoly/9eb0fde95418da2ce68fea6b1be306ad.js',
+  myFile
+];
+
+// пример использования асинхронного метода each
+hexletAsync.each(openFiles, (file, callback) => {
+  if (file.length > 90) {
+    console.log('file length', file.length);
+    callback('File name too long');
+  } else {
+    // Здесь предпологается какая-то операция над файлом(элементом); 
+    console.log('File processed');
+    callback();
+  }
+}, err => {
+  if (err) {
+    console.log('A file failed to process');
+  } else {
+    console.log('All files have been processed success');
+  }
+});
+
 
 // ======== Реализация чтения и записи файла посредством обычных колбеков.
 
