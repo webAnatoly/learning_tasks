@@ -31,7 +31,7 @@ hexletAsync.waterfall(functions, err => {
   }
 });
 
-let openFiles = [
+const openFiles = [
   'https://gist.github.com/webAnatoly/44f94831200cfcfe21036a3ec93677ab.js',
   'https://gist.github.com/webAnatoly/9eb0fde95418da2ce68fea6b1be306ad.js',
   myFile
