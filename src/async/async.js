@@ -84,3 +84,28 @@ hexletAsync.each(openFiles, (file, callback) => {
 // });
 
 
+// EventEmitter
+import EventEmitter from 'events';
+
+class Clock extends EventEmitter {
+  start() {
+    let tic = true;
+    this.interval = setInterval(() => {
+      const event = tic ? 'tic' : 'toc';
+      this.emit(event, 'мои данные или колбек. В оригинале тут было Date.now()');
+      tic = !tic;
+    }, 1000);
+  }
+  stop() {
+    clearInterval(this.interval);
+  }
+}
+
+const clock = new Clock();
+
+clock.start();
+
+clock.on('tic', (t) => console.log('tic', t));
+clock.on('toc', (t) => console.log('toc', t));
+
+setTimeout(clearInterval, 4000, clock.interval);
