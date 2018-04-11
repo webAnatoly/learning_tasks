@@ -5,7 +5,8 @@ import path from 'path';
 
 import hexletAsync from './hexletAsync';
 
-const myFile = path.join(__dirname, '../../', '/files/test');
+let myFile = path.join(__dirname, '../../', '/files/test');
+let test2 = path.join(__dirname, '../../', '/files/test2');
 
 // Реализация чтения и записи файла с использованием waterfall
 const functions = [
@@ -92,7 +93,7 @@ class Clock extends EventEmitter {
     let tic = true;
     this.interval = setInterval(() => {
       const event = tic ? 'tic' : 'toc';
-      this.emit(event, 'мои данные или колбек. В оригинале тут было Date.now()');
+      this.emit(event, 'мои данные или функция (колбэк). Например Date.now()');
       tic = !tic;
     }, 1000);
   }
@@ -109,3 +110,18 @@ clock.on('tic', (t) => console.log('tic', t));
 clock.on('toc', (t) => console.log('toc', t));
 
 setTimeout(clearInterval, 4000, clock.interval);
+
+// Практическое задание "Асинхронное детектирование"
+import detect from './detect';
+
+const copiedPaths = openFiles.slice(); 
+
+copiedPaths.push(test2);
+
+detect(copiedPaths, (filePath, callback) => {
+  fs.access(filePath, err => {
+    callback(filePath, !err);
+  });
+}, (err, result) => {
+  // result now equals the first file in the list that exists
+});
